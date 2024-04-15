@@ -1,0 +1,14 @@
+<p>Lista de productos</p>
+
+<ul>
+    @for (producto of productos; track $index) {
+        <li>
+            {{producto.id}} - {{producto.nombre}}
+            <button [routerLink]="'./'+producto.id" >Ver</button>
+        </li>
+        }
+</ul>
+
+
+
+<router-outlet/>
