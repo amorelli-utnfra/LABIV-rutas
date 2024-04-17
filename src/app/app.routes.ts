@@ -11,12 +11,18 @@ export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: "full" },
     { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutComponent },
-    { path: 'products', component: ProductsComponent,
-        children: [{
-            path:":id",
-            component: ProductDetailComponent
-        }]
+    {
+        path: 'products', component: ProductsComponent,
+        children:
+            [
+                {
+                    path: ":id",
+                    component: ProductDetailComponent
+                }
+            ]
     },
-    { path: '**', component: PageNotFoundComponent }
+    // La ruta comodin debe ir siempre al final
+    { path: '**', component: PageNotFoundComponent },
+    
 ];
 
