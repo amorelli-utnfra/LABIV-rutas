@@ -4,7 +4,7 @@ import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -17,5 +17,6 @@ export class AppComponent {
 
   goTo(path: string) {
     this.router.navigate([path]);
+    // this.router.navigateByUrl(path)
   }
 }

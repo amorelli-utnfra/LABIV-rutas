@@ -1,30 +1,26 @@
 <p>Lista de productos</p>
 
-<ul>
+<!-- <ul>
 
     @if (productos.length > 1) {
         @for (producto of productos; track $index) {
             <li>
                 {{producto.id}} - {{producto.nombre}}
-                <button [routerLink]="'./' + producto.id">Ver {{$index}} </button>
+                <button [routerLink]="'./' + 'detalle'">Ver {{$index}} </button>
             </li>
             }
     }
-</ul>
+</ul> -->
 
-<ng-container class="fondo" *ngIf="productos.length > 1" >
+<ng-container class="fondo" *ngIf="productos.length > 0" >
     <ul>
 
         <li *ngFor="let product of productos; let i = index">
             {{product.id}} - {{product.nombre}}
-            <button [routerLink]="'./detail'">Ver {{i}}</button>
+            <button (click)="goTo(product.id, product.nombre)">Ver {{i}}</button>
         </li>
     
     </ul>
 </ng-container>
-
-
-
-
 
 <router-outlet />

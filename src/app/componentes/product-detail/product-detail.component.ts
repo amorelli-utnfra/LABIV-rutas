@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, ParamMap, Params } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -9,20 +9,41 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrl: './product-detail.component.css'
 })
 export class ProductDetailComponent implements OnInit {
+
   productId!: string | null;
 
   constructor(private activatedRoute: ActivatedRoute) {
 
   }
+
+
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(paramMap => {
 
-      if (paramMap.has('id')) {
-        this.productId = paramMap.get('id') ?? "";
+    //   this.activatedRoute.paramMap.subscribe((paramMap) => {
+
+    //     if (paramMap.has('productId')) {
+    //       this.productId = paramMap.get('productId') ?? "";
+    //     }
+    //      console.log(this.productId);
+
+    //   }
+    // );
+
+
+    this.activatedRoute.params.subscribe((paramMap: Params) => {
+      if (paramMap['productId']) {
+        this.productId = paramMap['productId']
       }
-       console.log(this.productId);
-
     });
+
+
+
+
+        // this.activatedRoute.queryParamMap.subscribe((paramMap: ParamMap) => {
+    //     if (paramMap.has('productId')) {
+    //       this.productId = paramMap.get('productId') ?? "";
+    //     }
+    // });
 
   }
 

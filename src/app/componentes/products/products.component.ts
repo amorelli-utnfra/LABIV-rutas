@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -11,6 +11,10 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 })
 export class ProductsComponent {
 
+  constructor(private router: Router) {
+
+  }
+
   productos = [{
     id: 1,
     nombre: "Coca cola"
@@ -19,5 +23,10 @@ export class ProductsComponent {
     id: 2,
     nombre: "Pepsi"
   }]
+
+
+  goTo(productId: number, nombre: string) {
+    this.router.navigate(['products/detalle', productId]);
+  }
 
 }
